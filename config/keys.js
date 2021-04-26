@@ -1,3 +1,3 @@
 module.exports = {
-    MONGOURI:"your connection string it can be found when you connect your cluster and link your app to yor MongoDB Atlas cluster"
+    MONGOURI:"mongodb+srv://annaki:9Sy4bW1w601m7ypC@cluster0.lgcj2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 }
