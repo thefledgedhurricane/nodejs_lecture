@@ -5,7 +5,14 @@ const User = mongoose.model("User")
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../config/keys')
+const RateLimit = require('express-rate-limit');
+const limiter = new RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
 
+// apply rate limiter to all requests
+router.use(limiter);
 
 
 

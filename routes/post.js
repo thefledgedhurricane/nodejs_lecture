@@ -3,7 +3,14 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const requireLogin  = require('../middleware/requireLogin')
 const Post =  mongoose.model("Post")
+const RateLimit = require('express-rate-limit');
+const limiter = new RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
 
+// apply rate limiter to all requests
+router.use(limiter);
 
 router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()

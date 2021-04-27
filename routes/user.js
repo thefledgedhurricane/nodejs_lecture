@@ -4,7 +4,14 @@ const mongoose = require('mongoose')
 const requireLogin  = require('../middleware/requireLogin')
 const Post =  mongoose.model("Post")
 const User = mongoose.model("User")
+const RateLimit = require('express-rate-limit');
+const limiter = new RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
 
+// apply rate limiter to all requests
+router.use(limiter);
 
 router.get('/user/:id',requireLogin,(req,res)=>{
     User.findOne({_id:req.params.id})
