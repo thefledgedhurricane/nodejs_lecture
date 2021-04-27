@@ -17,6 +17,8 @@ mongoose.connection.on('error',(err)=>{
     console.log("err connecting",err)
 })
 
+require('./models/user')
+require('./models/post')
 
 app.listen(PORT,()=>{
     console.log("server is running on",PORT)
