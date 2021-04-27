@@ -1,4 +1,0 @@
-module.exports = {
-    MONGOURI:"CONNECTIONSTRING",
-    JWT_SECRET:"JWTSECRET"
-}
